@@ -35,6 +35,7 @@ defmodule LiveAdmin.Components.Nav do
       path =
         resource.__live_admin_config__(:schema)
         |> Module.split()
+        |> Enum.slice(-1, 1)
         |> case do
           list when length(list) == 1 -> list
           list -> Enum.drop(list, -1)
